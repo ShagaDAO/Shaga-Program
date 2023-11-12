@@ -1,3 +1,5 @@
+# Shaga Solana Program
+
 Shaga is a peer-2-peer Cloud Gaming protocol that leverages Solana, Sunshine & Moonlight.
 
 This repo contains the Shaga Program built by @crypt0miester

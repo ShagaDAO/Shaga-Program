@@ -1,0 +1,27 @@
+[package]
+name = "shaga"
+version = "0.2.0"
+description = "Created with Anchor"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "shaga"
+
+[features]
+no-entrypoint = []
+no-idl = []
+no-log-ix-name = []
+cpi = ["no-entrypoint"]
+default = []
+
+[dependencies]
+solana-program = "^1.16.15"
+anchor-lang = { version = "0.28.0", features = ["init-if-needed"] }
+anchor-spl = "0.28.0"
+clockwork-sdk = { git ="https://github.com/open-clockwork/clockwork.git" }
+getrandom = { version = "0.2.9", features = ["custom"] }
+session-keys = { version = "2.0.1", features = ["no-entrypoint"] }
+winnow="=0.4.1"
+sha2 = "0.10.8"
+solana-security-txt = "1.1.1"

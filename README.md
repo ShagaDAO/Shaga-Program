@@ -1,19 +1,21 @@
 Shaga is a peer-2-peer Cloud Gaming protocol that leverages Solana, Sunshine & Moonlight.
 
-This repo contains the ShagaJoe Program, the Solana logic that is based on @kamikazejoe.
+This repo contains the Shaga Program built by @crypt0miester
 
 The TLDR of how the protocol works is this:
 Shaga modifies the phase 1 of the Moonlight protocol (an open-source NVIDIA GameStream Implementation https://games-on-whales.github.io/wolf/stable/protocols/http-pairing.html#_phase_1) by changing the way the PIN to pair the Server & Client is shared.
 
 In the vanilla implementation, the PIN needs to be inserted manually for the pairing to happen. In Shaga, we leverage Solana's ED25519 Keypairs and map them to X25519 Keypairs, then the Moonlight-Client uses its Private X25519 Key and the Server's Public X25519 Key to Encrypt the PIN, then sends it using this http request:
-"
+```java
         String getCert = http.executeShagaPairingCommand("phrase=getservercert&salt=" +
                         bytesToHex(salt) + "&clientcert=" + bytesToHex(pemCertBytes) +
                         "&encryptedPin=" + hexEncryptedPin + "&publicKey=" + publicKeyBase58,
                 false);
-"
+```
 
-The Moonlight-Client gets the Server's IP_Address & PublicKey by fetching from the ShagaJoe Program a list of all the session_accounts available, uses it to ping the IP_Addresses to get a latency measure, then when a session to join has been chosen, it invokes the start_rental instruction and pays rent in advance.
+The Moonlight-Client gets the Server's IP_Address & PublicKey by fetching from the Shaga Program a list of all the session_accounts available, uses it to ping the IP_Addresses to get a latency measure, then when a session to join has been chosen, it invokes the start_rental instruction and pays rent in advance.
+
+The Solana Program has been upgraded to include Private Pairing that would require a password set by the Host. Users can opt-out to be Public.
 
 The Sunshine Server then, handles the http request and uses a POST to send the EncryptedPIN & PublicKey received to the server's frontend, where the decryption happens in Typescript.
 

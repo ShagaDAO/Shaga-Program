@@ -1,4 +1,4 @@
 [workspace]
 members = [
-    "programs/shagaJoe"
+    "programs/shaga"
 ]

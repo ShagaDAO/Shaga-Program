@@ -47,7 +47,7 @@ async function main() {
   // the shaga coordinates system. built around online maps coordinates system.
   // precision does not have to be accurate to the dot that is why only three decimal points are used.
   // values can be negative. with the format of: ±DD.DDD,±DDD.DDD (lat,long)
-  const dummyCoordinates = 'y4xofD32dWBVQJcjJ5Xy3KKW3Q95ofyfdWhoRN.y4xofD32dWBVQJcjJ5Xy3KKW3Q95ofyfdWhoRN,y4xofD32dWBVQJcjJ5Xy3KKW3Q95ofyfdWhoRN.y4xofD32dWBVQJcjJ5Xy3KKW3Q95ofyfdWhoRN';
+  const dummyCoordinates = '123.123.123.123';
   const dummyIpAddress = '192.168.1.1';
   const dummyCpuName = 'Intel Core i7-9700K';
   const dummyGpuName = 'NVIDIA GeForce RTX 3070';
